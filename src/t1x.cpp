@@ -23,6 +23,9 @@
 
 #include "t1x.h"
 #include "shared.h"
+#include "version.h"
+
+#define VERSION_INFO "v" T1X_VERSION "-" T1X_STATUS
 
 //// Cvars
 cvar_t* com_sv_running;
@@ -294,6 +297,7 @@ void custom_Com_Init(char* commandLine)
 
     // Register
     Cvar_Get("t1x", "1", CVAR_SERVERINFO);
+    Cvar_Get("t1x_version", VERSION_INFO, CVAR_SERVERINFO);
     // Register and create references
     fs_callbacks = Cvar_Get("fs_callbacks", "maps/mp/gametypes/_callbacksetup", CVAR_ARCHIVE);
     fs_callbacks_additional = Cvar_Get("fs_callbacks_additional", "", CVAR_ARCHIVE);
@@ -1511,7 +1515,10 @@ class t1x
         printf("client_t real size: %u, client_t current size: %u\n", sizeof(test_t), sizeof(client_t));
 #endif
         printf("------------ t1x ------------\n");
-        printf("Compiled on %s %s using g++ %s\n", __DATE__, __TIME__, __VERSION__);
+        printf("Version:      %s\n", T1X_VERSION);
+        printf("Status:       %s\n", T1X_STATUS);
+        printf("Compile Date: %s %s\n", __DATE__, __TIME__);
+        printf("Compiler:     g++ %s\n", __VERSION__);
 
         // Don't inherit lib of parent
         unsetenv("LD_PRELOAD");

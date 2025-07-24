@@ -1,13 +1,15 @@
 ###### top-link
-# Improvements for [CoD1](https://en.wikipedia.org/wiki/Call_of_Duty_(video_game)) Linux server
+
+# T1X-Server
+Improvements for [CoDUO](https://en.wikipedia.org/wiki/Call_of_Duty:_United_Offensive) Linux server
 ### Adding security, fixes, and features
-Supported game version: **1.1**
+Supported game version: **1.51**
 ___
 ### Download
-[Releases](https://github.com/raphael12333/iw1x-server/releases)
+[Releases](https://github.com/Wolf-Pack-Clan/t1x-server/releases)
 ___
 ### Usage and Build steps
-[Wiki](https://github.com/raphael12333/iw1x-server/wiki)
+[Wiki](https://github.com/Wolf-Pack-Clan/t1x-server/wiki)
 ___
 #### References
 - [Killtube](https://www.killtube.org/)
