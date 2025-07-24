@@ -41,10 +41,8 @@ jobs:
           sudo apt-get update
           # The actual dependencies.
           sudo apt-get install --no-install-recommends build-essential pkg-config g++-multilib \
-            libssl-dev:i386 libcurl4-openssl-dev:i386 libsqlite3-dev:i386 libstdc++5:i386
-
-      - name: Setup python
-        uses: ./.github/actions/deps
+            libssl-dev:i386 libcurl4-openssl-dev:i386 libsqlite3-dev:i386 libstdc++5:i386 \
+            meson ninja
 
       - name: Compilation
         uses: ./.github/actions/build
@@ -52,8 +50,9 @@ jobs:
           target: ${{ matrix.target }}
 
       - name: Running
+        if: ${{ matrix.target }} == debug
         run: |
-          ls -l bin/
+          ls -l build/debug/
 
       - name: Upload artifact
         uses: ./.github/actions/upload-artifact
