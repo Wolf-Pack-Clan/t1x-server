@@ -1,3 +1,26 @@
+/**************************************************************************/
+/*  gsc.h                                                                 */
+/**************************************************************************/
+/*                         This file is part of:                          */
+/*                               T1X-Server                               */
+/*             https://github.com/Wolf-Pack-Clan/t1x-server               */
+/**************************************************************************/
+/* Copyright (c) 2025 Wolf Pack                                           */
+/*                                                                        */
+/* This program is free software: you can redistribute it and/or modify   */
+/* it under the terms of the GNU General Public License as published by   */
+/* the Free Software Foundation, either version 3 of the License, or      */
+/* (at your option) any later version.                                    */
+/*                                                                        */
+/* This program is distributed in the hope that it will be useful,        */
+/* but WITHOUT ANY WARRANTY; without even the implied warranty of         */
+/* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          */
+/* GNU General Public License for more details.                           */
+/*                                                                        */
+/* You should have received a copy of the GNU General Public License      */
+/* along with this program.  If not, see <https://www.gnu.org/licenses/>. */
+/**************************************************************************/
+
 #ifndef GSC_H
 #define GSC_H
 
@@ -12,18 +35,18 @@
 #define STACK_OBJECT 7
 #define STACK_FUNCTION 9
 
-const char * stackGetParamTypeAsString(int param);
-int stackGetParams(const char *params, ...);
-void stackError(const char *format, ...);
+const char* stackGetParamTypeAsString(int param);
+int stackGetParams(const char* params, ...);
+void stackError(const char* format, ...);
 
-int stackGetParamInt(int param, int *value);
-int stackGetParamFunction(int param, int *value);
-int stackGetParamString(int param, char **value);
-int stackGetParamConstString(int param, unsigned int *value);
-int stackGetParamLocalizedString(int param, char **value);
+int stackGetParamInt(int param, int* value);
+int stackGetParamFunction(int param, int* value);
+int stackGetParamString(int param, char** value);
+int stackGetParamConstString(int param, unsigned int* value);
+int stackGetParamLocalizedString(int param, char** value);
 int stackGetParamVector(int param, vec3_t value);
-int stackGetParamFloat(int param, float *value);
-int stackGetParamObject(int param, unsigned int *value);
+int stackGetParamFloat(int param, float* value);
+int stackGetParamObject(int param, unsigned int* value);
 
 //// For tests
 void gsc_testfunction();
@@ -84,7 +107,6 @@ void gsc_utils_strstr();
 void gsc_utils_monotone();
 void gsc_utils_gettype();
 
-
 ////
 
 //// Exec
@@ -93,8 +115,8 @@ void gsc_exec();
 
 #if COMPILE_CURL == 1
 #include <curl/curl.h>
-#include <thread>
 #include <memory>
+#include <thread>
 void gsc_curl_webhookmessage();
 #endif
 

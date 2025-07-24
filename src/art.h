@@ -1,5 +1,5 @@
 /**************************************************************************/
-/*  jump.h                                                                */
+/*  art.h                                                                 */
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                               T1X-Server                               */
@@ -21,11 +21,7 @@
 /* along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 /**************************************************************************/
 
-/* gsc functions */
-#include "shared.h"
+#include "pch.h"
 
-//__attribute__ ((naked)) void hook_PM_WalkMove_Naked();
-//__attribute__ ((naked)) void hook_PM_SlideMove_Naked();
-
-double custom_Jump_GetLandFactor();
-double custom_PM_GetReducedFriction();
+extern void gosha();
+extern void meow();

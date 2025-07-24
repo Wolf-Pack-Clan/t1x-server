@@ -1,14 +1,37 @@
+/**************************************************************************/
+/*  jump.cpp                                                              */
+/**************************************************************************/
+/*                         This file is part of:                          */
+/*                               T1X-Server                               */
+/*             https://github.com/Wolf-Pack-Clan/t1x-server               */
+/**************************************************************************/
+/* Copyright (c) 2025 Wolf Pack                                           */
+/*                                                                        */
+/* This program is free software: you can redistribute it and/or modify   */
+/* it under the terms of the GNU General Public License as published by   */
+/* the Free Software Foundation, either version 3 of the License, or      */
+/* (at your option) any later version.                                    */
+/*                                                                        */
+/* This program is distributed in the hope that it will be useful,        */
+/* but WITHOUT ANY WARRANTY; without even the implied warranty of         */
+/* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          */
+/* GNU General Public License for more details.                           */
+/*                                                                        */
+/* You should have received a copy of the GNU General Public License      */
+/* along with this program.  If not, see <https://www.gnu.org/licenses/>. */
+/**************************************************************************/
+
 #include "jump.h"
 
-extern cvar_t *jump_slowdownEnable;
+extern cvar_t* jump_slowdownEnable;
 
-//#define JUMP_LAND_SLOWDOWN_TIME 1800
-//#define PMF_JUMPING 0x2000
+// #define JUMP_LAND_SLOWDOWN_TIME 1800
+// #define PMF_JUMPING 0x2000
 
-extern pmove_t *pm;
+extern pmove_t* pm;
 
-//extern uintptr_t resume_addr_PM_WalkMove;
-//extern uintptr_t resume_addr_PM_SlideMove;
+// extern uintptr_t resume_addr_PM_WalkMove;
+// extern uintptr_t resume_addr_PM_SlideMove;
 
 /*__attribute__ ((naked)) void hook_PM_WalkMove_Naked()
 {
@@ -30,7 +53,7 @@ extern "C" void Jump_ApplySlowdown()
     if(ps->pm_flags & PMF_JUMPING)
     {
         float scale = 1.0;
-        
+
         if(ps->pm_time <= JUMP_LAND_SLOWDOWN_TIME)
         {
             if(!ps->pm_time)
@@ -85,7 +108,8 @@ __attribute__ ((naked)) void hook_PM_SlideMove_Naked()
     );
 }
 
-extern "C" void hook_PM_SlideMove(float primal_velocity_0, float primal_velocity_1, float primal_velocity_2)
+extern "C" void hook_PM_SlideMove(float primal_velocity_0, float primal_velocity_1, float
+primal_velocity_2)
 {
     if(jump_slowdownEnable->integer) // Not to disable wallrun after jump
     {
@@ -101,10 +125,10 @@ extern "C" void hook_PM_SlideMove(float primal_velocity_0, float primal_velocity
 
 double custom_Jump_GetLandFactor()
 {
-    if(!jump_slowdownEnable->integer)
+    if (!jump_slowdownEnable->integer)
         return 1.0;
 
-    playerState_t *ps = ((pmove_t*)*((int*)pm))->ps;
+    playerState_t* ps = ((pmove_t*)*((int*)pm))->ps;
     if (ps->pm_time < 1700)
         return (double)ps->pm_time * 1.5 * 0.00058823527 + 1.0;
     return 2.5;
@@ -112,10 +136,10 @@ double custom_Jump_GetLandFactor()
 
 double custom_PM_GetReducedFriction()
 {
-    if(!jump_slowdownEnable->integer)
+    if (!jump_slowdownEnable->integer)
         return 1.0;
 
-    playerState_t *ps = ((pmove_t*)*((int*)pm))->ps;
+    playerState_t* ps = ((pmove_t*)*((int*)pm))->ps;
     if (ps->pm_time < 1700)
         return (double)ps->pm_time * 1.5 * 0.00058823527 + 1.0;
     return 2.5;

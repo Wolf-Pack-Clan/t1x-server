@@ -1,0 +1,20 @@
+name: Build T1X-Server
+description: Build T1X-Server with the provided options.
+inputs:
+  target:
+    description: The target (debug/release).
+    default: "debug"
+  buildflags:
+    default: "-Ddebug_build=true -Dcompile_ssl=true -Dcompile_curl=true -Dcompile_sqlite=true -Denable_unsafe=true"
+runs:
+  using: "composite"
+  steps:
+    - name: Setup and Compile
+      shell: sh
+      env:
+          BUILDFLAGS: ${{ inputs.buildflags }}
+      run: |
+        echo "Building with flags:" ${{ env.BUILDFLAGS }}
+        meson setup build/${{ inputs.target }} --buildtype=${{ inputs.target }} ${{ env.BUILDFLAGS }}
+        ninja -C build/${{ inputs.target }}
+        ls -l bin/

@@ -1,0 +1,4 @@
+option('enable_unsafe', type: 'boolean', value: false, description: 'Enable risky features (fread, fwrite...)')
+option('compile_sqlite', type: 'boolean', value: false, description: 'SQLite support')
+option('compile_curl', type: 'boolean', value: false, description: 'cURL support')
+option('compile_ssl', type: 'boolean', value: false, description: 'SSL support')

@@ -1,0 +1,63 @@
+name: Builds & Run
+on:
+  workflow_call:
+
+# Global Settings
+#env:
+
+concurrency:
+  group: ci-${{github.actor}}-${{github.head_ref || github.run_number}}-${{github.ref}}-server
+  cancel-in-progress: true
+
+jobs:
+  build:
+    # Stay on LTS
+    runs-on: "ubuntu-24.04"
+    name: ${{ matrix.name }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: T1X Debug
+            cache-name: t1x-debug
+            artifact: true
+            target: debug
+
+          - name: T1X Release
+            cache-name: t1x-release
+            artifact: true
+            target: release
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Linux dependencies
+        shell: bash
+        run: |
+          # Azure repositories are flaky, remove them.
+          sudo rm -f /etc/apt/sources.list.d/{azure,microsoft}*
+          # Add 32 bit arch
+          sudo dpkg --add-architecture i386
+          sudo apt-get update
+          # The actual dependencies.
+          sudo apt-get install --no-install-recommends build-essential pkg-config g++-multilib \
+            libssl-dev:i386 libcurl4-openssl-dev:i386 libsqlite3-dev:i386 libstdc++5:i386
+
+      - name: Setup python
+        uses: ./.github/actions/deps
+
+      - name: Compilation
+        uses: ./.github/actions/build
+        with:
+          target: ${{ matrix.target }}
+
+      - name: Running
+        run: |
+          ls -l bin/
+
+      - name: Upload artifact
+        uses: ./.github/actions/upload-artifact
+        if: ${{ matrix.artifact }}
+        with:
+          name: ${{ matrix.cache-name }}
+          path: build/${{ matrix.target }}/t1x.so

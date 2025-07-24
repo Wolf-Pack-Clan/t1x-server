@@ -1,0 +1,19 @@
+name: Upload artifact
+description: Upload the artifact.
+inputs:
+  name:
+    description: The artifact name.
+    default: "${{ github.job }}"
+  path:
+    description: The path to upload.
+    required: true
+    default: "build/*"
+runs:
+  using: "composite"
+  steps:
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ inputs.name }}
+        path: ${{ inputs.path }}
+        retention-days: 14

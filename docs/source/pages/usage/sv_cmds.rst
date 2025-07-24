@@ -15,7 +15,7 @@ ipban Arguments
     **Units:**
 
     - h for hours
-    
+
     - d for days
 
 ipban Examples
