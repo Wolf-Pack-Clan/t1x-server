@@ -7,7 +7,7 @@ inputs:
   path:
     description: The path to upload.
     required: true
-    default: "build/*"
+    default: "bin/t1x.so"
 runs:
   using: "composite"
   steps:

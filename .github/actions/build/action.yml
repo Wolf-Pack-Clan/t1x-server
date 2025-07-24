@@ -5,7 +5,7 @@ inputs:
     description: The target (debug/release).
     default: "debug"
   buildflags:
-    default: "-Dcompile_ssl=true -Dcompile_curl=true -Dcompile_sqlite=true -Denable_unsafe=true"
+    default: "-Dcompile_ssl=true -Dcompile_curl=true -Dcompile_sqlite=true -Denable_unsafe=true -Dprefix=$(realpath .)"
 runs:
   using: "composite"
   steps:
@@ -17,5 +17,5 @@ runs:
         echo "Building with flags:" ${{ env.BUILDFLAGS }}
         export PKG_CONFIG_PATH=/usr/lib/i386-linux-gnu/pkgconfig:/usr/lib32/pkgconfig:$PKG_CONFIG_PATH
         meson setup build/${{ inputs.target }} --buildtype=${{ inputs.target }} ${{ env.BUILDFLAGS }}
-        ninja -C build/${{ inputs.target }}
+        ninja -C build/${{ inputs.target }} install
         ls -l bin/

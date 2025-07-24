@@ -25,8 +25,8 @@ jobs:
 
       - name: File format checks (file_format.sh)
         run: |
-          bash ./scripts/file_format.sh
+          bash ./misc/scripts/file_format.sh
 
       - name: Style checks via clang-format (clang_format.sh)
         run: |
-          bash ./scripts/clang_format.sh
+          bash ./misc/scripts/clang_format.sh

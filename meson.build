@@ -38,13 +38,13 @@ else
   add_project_arguments('-DENABLE_UNSAFE=0', language: 'cpp')
 endif
 
-# Initialize dependency list
+# Dependencies
 deps = [
   dependency('dl'),
   dependency('threads')
 ]
 
-# Handle SQLite support
+# SQLite support
 if compile_sqlite
   sqlite_dep = dependency('sqlite3')
   if not sqlite_dep.found()
@@ -56,7 +56,7 @@ else
   add_project_arguments('-DCOMPILE_SQLITE=0', language: 'cpp')
 endif
 
-# Handle cURL support
+# cURL support
 if compile_curl
   curl_dep = dependency('libcurl')
   if not curl_dep.found()
@@ -68,7 +68,7 @@ else
   add_project_arguments('-DCOMPILE_CURL=0', language: 'cpp')
 endif
 
-# Handle SSL support with OpenSSL
+# SSL support with OpenSSL
 if compile_ssl
   openssl_dep = dependency('openssl')
   if not openssl_dep.found()
@@ -80,7 +80,7 @@ else
   add_project_arguments('-DCOMPILE_SSL=0', language: 'cpp')
 endif
 
-# List source files
+# Source files
 sources = [
   'src/art.cpp',
   'src/gsc/gsc.cpp',
@@ -93,12 +93,12 @@ sources = [
   'src/t1x.cpp'
 ]
 
-# Define the shared library
+# The shared library
 t1x = shared_library('t1x',
   sources,
   dependencies: deps,
-  name_prefix: '',  # Removes 'lib' prefix to match 't1x.so'
-  cpp_pch: 'src/pch.h',  # Precompiled header
+  name_prefix: '',
+  cpp_pch: 'src/pch.h',
   install: true,
-  install_dir: '/home/kazam/games/coduo'  # Installation directory
+  install_dir: 'bin/'
 )

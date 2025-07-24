@@ -5,7 +5,7 @@
 set -uo pipefail
 IFS=$'\n\t'
 
-header_worker="scripts/copyright_headers.py"
+header_worker="./misc/scripts/copyright_headers.py"
 
 # File extensions to be formatted with clang-format
 CLANG_FORMAT_FILE_EXTS=(".c" ".h" ".cpp" ".hpp" ".inc")
