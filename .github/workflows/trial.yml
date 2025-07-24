@@ -42,7 +42,7 @@ jobs:
           # The actual dependencies.
           sudo apt-get install --no-install-recommends build-essential pkg-config g++-multilib \
             libssl-dev:i386 libcurl4-openssl-dev:i386 libsqlite3-dev:i386 libstdc++5:i386 \
-            meson ninja
+            meson ninja-build
 
       - name: Compilation
         uses: ./.github/actions/build
