@@ -21,6 +21,5 @@
 /* along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 /**************************************************************************/
 
-
 #define T1X_STATUS "testing"
 #define T1X_VERSION "0.1.4"

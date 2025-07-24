@@ -30,6 +30,10 @@
 static void ban();
 static void unban();
 std::tuple<bool, int, int, std::string> getBanInfoForIp(char* ip);
+static void clear()
+{
+    printf("\033[2J\033[H");
+}
 
 #ifdef DEBUG
 

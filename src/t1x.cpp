@@ -25,7 +25,7 @@
 #include "shared.h"
 #include "version.h"
 
-#define VERSION_INFO "v" T1X_VERSION "-" T1X_STATUS
+#define VERSION_INFO T1X_VERSION "-" T1X_STATUS
 
 //// Cvars
 cvar_t* com_sv_running;
@@ -434,6 +434,7 @@ void custom_SV_AddOperatorCommands()
 
     Cmd_AddCommand("ipban", ban);
     Cmd_AddCommand("ipunban", unban);
+    Cmd_AddCommand("clear", clear);
     Cmd_AddCommand("meow", meow);
     Cmd_AddCommand("gosha", gosha);
 #ifdef DEBUG
@@ -1519,6 +1520,7 @@ class t1x
         printf("Status:       %s\n", T1X_STATUS);
         printf("Compile Date: %s %s\n", __DATE__, __TIME__);
         printf("Compiler:     g++ %s\n", __VERSION__);
+        printf("-----------------------------------\n");
 
         // Don't inherit lib of parent
         unsetenv("LD_PRELOAD");
