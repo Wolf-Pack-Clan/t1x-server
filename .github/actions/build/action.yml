@@ -10,11 +10,12 @@ runs:
   using: "composite"
   steps:
     - name: Setup and Compile
-      shell: sh
+      shell: bash
       env:
           BUILDFLAGS: ${{ inputs.buildflags }}
       run: |
         echo "Building with flags:" ${{ env.BUILDFLAGS }}
+        export PKG_CONFIG_PATH=/usr/lib/i386-linux-gnu/pkgconfig:/usr/lib32/pkgconfig:$PKG_CONFIG_PATH
         meson setup build/${{ inputs.target }} --buildtype=${{ inputs.target }} ${{ env.BUILDFLAGS }}
         ninja -C build/${{ inputs.target }}
         ls -l bin/
