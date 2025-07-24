@@ -5,7 +5,7 @@ inputs:
     description: The target (debug/release).
     default: "debug"
   buildflags:
-    default: "-Ddebug_build=true -Dcompile_ssl=true -Dcompile_curl=true -Dcompile_sqlite=true -Denable_unsafe=true"
+    default: "-Dcompile_ssl=true -Dcompile_curl=true -Dcompile_sqlite=true -Denable_unsafe=true"
 runs:
   using: "composite"
   steps:
