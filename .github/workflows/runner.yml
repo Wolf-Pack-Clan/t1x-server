@@ -12,4 +12,5 @@ jobs:
 
   build-run:
     name: Build & Run
+    needs: static-checks
     uses: ./.github/workflows/trial.yml
