@@ -30,3 +30,13 @@ jobs:
       - name: Style checks via clang-format (clang_format.sh)
         run: |
           bash ./misc/scripts/clang_format.sh
+
+      - name: Link Checker
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # Check all markdown and reStructuredText files in repo
+          args: --base . --verbose --no-progress './**/*.md' './**/*.html' './**/*.rst'
+          # Use different output file path
+          output: /tmp/links_check.txt
+          # fail action on broken links
+          fail: true
