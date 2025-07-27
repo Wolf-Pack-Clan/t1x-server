@@ -270,6 +270,7 @@ void gsc_utils_replace() // TODO: check if needs improvements
     Scr_AddString(result);
 }
 
+#if ENABLE_UNSAFE == 1
 void gsc_utils_file_exists()
 {
     char* filename;
@@ -372,6 +373,7 @@ void gsc_utils_fclose()
 
     Scr_AddInt(fclose(file));
 }
+#endif
 
 static int starttime = time(NULL);
 void gsc_utils_getserverstarttime()

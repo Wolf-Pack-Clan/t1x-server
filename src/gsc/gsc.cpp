@@ -96,11 +96,7 @@ scr_function_t scriptFunctions[] = {
 
     {"sendCommandToClient", gsc_utils_sendcommandtoclient, 0},
     {"logPrintConsole", gsc_utils_logprintconsole, 0},
-    {
-        "getSubStr",
-        gsc_utils_getsubstr,
-        0,
-    },
+    {"getSubStr", gsc_utils_getsubstr, 0},
     {"getAscii", gsc_utils_getascii, 0},
     {"toUpper", gsc_utils_toupper, 0},
     {"toLower", gsc_utils_tolower, 0}, //*/
