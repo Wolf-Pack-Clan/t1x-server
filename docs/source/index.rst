@@ -16,7 +16,7 @@ This documentation provides instructions for t1x-server building, setup and usag
 
 .. toctree::
    :maxdepth: 2
-   
+
    pages/usage/index
    pages/development/index
    pages/scripting/index
