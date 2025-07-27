@@ -4,7 +4,7 @@ project('t1x-server', 'cpp',
 
 # Retrieve option values from meson_options.txt
 enable_unsafe = get_option('enable_unsafe')
-compile_sqlite = get_option('compile_sqlite')
+#compile_sqlite = get_option('compile_sqlite')
 compile_curl = get_option('compile_curl')
 compile_ssl = get_option('compile_ssl')
 
@@ -12,7 +12,7 @@ compile_ssl = get_option('compile_ssl')
 message('---------------------')
 message('Target: ' + get_option('buildtype'))
 message('Risky features: ' + enable_unsafe.to_string())
-message('SQLite: ' + compile_sqlite.to_string())
+#message('SQLite: ' + compile_sqlite.to_string())
 message('cURL: ' + compile_curl.to_string())
 message('SSL: ' + compile_ssl.to_string())
 message('---------------------')
@@ -44,6 +44,7 @@ deps = [
   dependency('threads')
 ]
 
+'''
 # SQLite support
 if compile_sqlite
   sqlite_dep = dependency('sqlite3')
@@ -55,6 +56,7 @@ if compile_sqlite
 else
   add_project_arguments('-DCOMPILE_SQLITE=0', language: 'cpp')
 endif
+'''
 
 # cURL support
 if compile_curl
