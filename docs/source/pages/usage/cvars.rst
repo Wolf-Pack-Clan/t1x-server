@@ -24,6 +24,27 @@ Set Connect Message Duration
 
 This shows the message for 2 challenges.
 
+Disable Jump Slowdown
+---------------------
+
+.. code-block:: bash
+
+    set jump_slowdownEnable "0"
+
+Set Callback Setup File
+-----------------------
+
+.. code-block:: bash
+
+    set fs_callbacks "maps/mp/gametypes/_callbacksetup"
+
+Set Custom Callback Setup File
+------------------------------
+
+.. code-block:: bash
+
+    set fs_callbacks_additional "custom_callback"
+
 Note
 ----
 

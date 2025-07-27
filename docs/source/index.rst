@@ -9,14 +9,14 @@ t1x-server Documentation
 .. contents:: Table of Contents
    :local:
 
-Overview
---------
+Topics
+------
 
 This documentation provides instructions for t1x-server building, setup and usage.
 
 .. toctree::
-   :maxdepth: 1
-   :caption: t1x-server Documentation
-
+   :maxdepth: 2
+   
    pages/usage/index
-   pages/building
+   pages/development/index
+   pages/scripting/index

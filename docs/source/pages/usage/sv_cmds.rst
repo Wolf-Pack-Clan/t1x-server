@@ -1,6 +1,8 @@
 Server Commands
 ===============
 
+.. _ban-client-ip-adress:
+
 Ban Client IP Adress
 ---------------------
 
@@ -29,6 +31,8 @@ ipban Examples
 
     ipban -i 12.345.67.8 -r aimbot -d 3h
 
+.. _unban-client-ip-adress:
+
 Unban Client IP Adress
 --------------------------------
 
@@ -45,3 +49,8 @@ ipunban Examples
 .. code-block:: bash
 
     ipunban -i 12.345.67.8
+
+Clear Console/Shell/Terminal
+----------------------------
+
+``clear``

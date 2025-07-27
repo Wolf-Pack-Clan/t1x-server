@@ -16,23 +16,33 @@ release = 'v0.1.1-stable'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = []
+extensions = [
+    'sphinx_copybutton',
+    'sphinx_nefertiti',
+    'sphinx.ext.autosectionlabel',
+]
 
 templates_path = ['_templates']
 exclude_patterns = []
 
-
-
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = "sphinx_rtd_theme"
+#html_theme = "piccolo_theme"
+#html_permalinks_icon = '<span>#</span>'
+html_theme = 'sphinx_nefertiti'
+
 
 html_static_path = ['_static']
+html_css_files = ["copybutton.css"]
 
 html_sidebars = {'**': ['globaltoc.html']}
 html_theme_options = {
-    'collapse_navigation': False,  # Prevents collapsing of TOC subtrees
-    'navigation_depth': 4,        # Ensures deeper levels are shown
-    'sticky_navigation': True     # Keeps navigation visible while scrolling
+    #'collapse_navigation': False,  # Prevents collapsing of TOC subtrees
+    #'navigation_depth': 4,        # Ensures deeper levels are shown
+    #'sticky_navigation': True,     # Keeps navigation visible while scrolling
+    'style': 'purple',
+    'repository_url': 'https://github.com/Wolf-Pack-Clan/t1x-server',
+    'repository_name': 't1x-server',
+    'pygments_dark_style': 'dracula'
 }
