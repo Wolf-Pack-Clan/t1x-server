@@ -18,4 +18,4 @@ ___
 - [CoD2rev_Server](https://github.com/voron00/CoD2rev_Server) and [voron's libcod fork](https://github.com/voron00/libcod)
 - [RTCW-MP](https://github.com/id-Software/RTCW-MP)
 - [Ghidra](https://en.wikipedia.org/wiki/Ghidra) and [IDA Free](https://hex-rays.com/ida-free/)
-- [ChatGPT](https://chatgpt.com/)
+- ChatGPT
